@@ -4,11 +4,12 @@ author: "Lindsey Thurman"
 date: "March 4, 2017"
 output: html_document
 ---
-Syntheis of reviews and meta-analyses on Adaptive Capacity to climate change
+Synthesis of reviews and meta-analyses on Adaptive Capacity to climate change
 
 ```{r echo=FALSE, include=FALSE}
 REVIEWS<-read.csv("AC Reviews & Meta-analyses.csv", header=T)
 
+library(rmarkdown)
 library(sunburstR)
 library(dplyr)
 library(TraMineR)
@@ -28,7 +29,7 @@ REVIEWS.seqtab<-seqtab( seqdss(REVIEWS.seq), tlim = 0, format = "SPS" ) %>>%
           , replacement = ""
           , perl = T
         )
-      #  ,"-end"
+        #,"-end"
       )
       ,freq = as.numeric(.$Freq)
       ,stringsAsFactors = FALSE
