@@ -13,4 +13,5 @@ http://stackoverflow.com/questions/32516366/github-website-publishing-of-knit-ge
 
 5. Back to GitHub -- Refresh the page displaying your repository. You should now see the additional documents, including [filename].html Quick check: Go to your browser and enter in the URL bar what for me would be https://llthurman.github.io/Adaptive-Capacity and then just tag on the name of the html document you created in RStudio.
 
-https://llthurman.github.io/Adaptive-Capacity/commands_rmdv2
+<a href="https://llthurman.github.io/Adaptive-Capacity/commands_rmdv2">Figure link</a>
+
