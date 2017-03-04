@@ -1,0 +1,54 @@
+---
+title: "Sunburst.v2"
+author: "Lindsey Thurman"
+date: "March 4, 2017"
+output: html_document
+---
+Sunburst plot for reviews and meta-analyses of Adaptive Capacity
+
+```{r echo=FALSE, include=FALSE}
+REVIEWS<-read.csv("AC Reviews & Meta-analyses.csv", header=T)
+
+library(sunburstR)
+library(dplyr)
+library(TraMineR)
+library(pipeR)
+
+REVIEWS.seq <- seqdef(REVIEWS, 3:5)
+
+REVIEWS.seqtab<-seqtab( seqdss(REVIEWS.seq), tlim = 0, format = "SPS" ) %>>%
+  attr("freq") %>>%
+  (
+    data.frame(
+      # appending "-end" is necessary for this to work
+      sequence = paste0(
+        gsub(
+          x = names(.$Freq)
+          , pattern = "(/[0-9]*)"
+          , replacement = ""
+          , perl = T
+        )
+      #  ,"-end"
+      )
+      ,freq = as.numeric(.$Freq)
+      ,stringsAsFactors = FALSE
+    )
+  ) 
+  sunburst<-sunburst(count=TRUE, REVIEWS.seqtab)
+
+
+```
+```{r echo=FALSE}
+htmlwidgets::onRender(
+  sunburst(REVIEWS.seqtab, count=TRUE),
+  '
+function(el,x){
+  d3.select(el).select(".sunburst-sidebar").remove()
+}
+  '
+)
+#saveWidget(sunburst, "sunburstv1.html", selfcontained = TRUE,
+ # background = "white")
+```
+
+
