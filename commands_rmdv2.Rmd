@@ -4,7 +4,7 @@ author: "Lindsey Thurman"
 date: "March 4, 2017"
 output: html_document
 ---
-Synthesis of reviews and meta-analyses on species adaptive capacity to climate change. 
+Proportion of reviews and meta-analyses on species adaptive capacity to climate change by AC mechanism, system, and/or taxa. Follow the breadcrumbs (concentric pie slices) to uncover these hierarchical relationships.  
 
 ```{r echo=FALSE, include=FALSE}
 REVIEWS<-read.csv("AC Reviews & Meta-analyses.csv", header=T)
@@ -57,7 +57,7 @@ function(el,x){
 <br>
 <br>
 <br>
-Compiled by AC Mechanism
+Condensed by AC Mechanism:
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 library(plotly)
 
