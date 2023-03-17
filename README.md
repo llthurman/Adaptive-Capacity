@@ -1,5 +1,5 @@
 # Adaptive-Capacity
-# Building a sunburstR plot
+
 Instructions adapted from: 
 http://stackoverflow.com/questions/32516366/github-website-publishing-of-knit-generated-html-files-in-rstudio
 
